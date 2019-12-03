@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_top_menu"
+    android:layout_width="wrap_content"
+    android:layout_height="40dp"
+    android:background="@drawable/media_menu_background"
+    android:clickable="true"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/tv_folder_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="5dp"
+        android:text="图片和视频"
+        android:textColor="@color/color_theme_text_color"
+        android:textSize="14sp" />
+
+    <ImageView
+        android:id="@+id/test_arrow"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="3dp"
+        android:padding="0dp"
+        android:rotation="180"
+        android:rotationX="0.5"
+        android:rotationY="0.5"
+        android:src="@drawable/inidrtor" />
+</LinearLayout>

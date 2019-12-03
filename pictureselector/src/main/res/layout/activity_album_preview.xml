@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.AlbumPreviewActivity">
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_photo_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toTopOf="@id/layout_bottom_menu"
+        app:layout_constraintTop_toBottomOf="@id/action_bar"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <View
+        android:id="@+id/iv_foreground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#2c2c2c"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone" />
+
+    <FrameLayout
+        android:id="@+id/layout_folder_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toTopOf="@id/layout_bottom_menu"
+        app:layout_constraintTop_toBottomOf="@id/action_bar">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_folder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/color_theme_background"
+            android:padding="5dp"
+            android:scrollbars="vertical"
+            android:translationY="-400dp"
+            android:visibility="gone" />
+    </FrameLayout>
+
+
+    <TextView
+        android:id="@+id/tv_img_time"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="#992c2c2c"
+        android:gravity="center_vertical"
+        android:paddingStart="10dp"
+        android:paddingEnd="0dp"
+        android:textColor="@color/color_theme_text_color"
+        android:textSize="13sp"
+        app:layout_constraintTop_toBottomOf="@id/action_bar"
+        tools:text="2019/10" />
+
+    <RelativeLayout
+        android:id="@+id/action_bar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/color_theme_background"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_weight="1">
+
+        <ImageButton
+            android:id="@+id/ib_back"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:foreground="@drawable/rect_foreground"
+            android:padding="15dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/icon_close" />
+
+        <include
+            layout="@layout/widget_priview_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/ib_back" />
+
+        <Button
+            android:id="@+id/btn_send"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/btn_send_background"
+            android:stateListAnimator="@null"
+            android:text="发送"
+            android:textColor="@color/color_theme_text_color"
+            android:textSize="13sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_bottom_menu"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/color_theme_background"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <CheckBox
+            android:id="@+id/tb_select_original"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:button="@null"
+            android:drawableLeft="@drawable/radio_btn_style"
+            android:drawablePadding="10dp"
+            android:foreground="@null"
+            android:text="原图"
+            android:textColor="@color/color_theme_text_color" />
+
+        <Button
+            android:id="@+id/btn_preview"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:background="@null"
+            android:text="预览"
+            android:textColor="@color/color_theme_text_color" />
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

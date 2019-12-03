@@ -1,0 +1,4 @@
+<resources>
+    <string name="library_name">PictureSelector</string>
+    <string name="sdcard_path">AlbumPreview</string>
+</resources>

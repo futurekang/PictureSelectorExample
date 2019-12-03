@@ -24,15 +24,28 @@ you **app/build.gradle**
  3. 
 
 ```java
-  Button button = findViewById(R.id.btn_go);
+  @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        Button button = findViewById(R.id.btn_go);
         button.setOnClickListener(v ->
                 AlbumPreviewActivity.toAlbumPreview(MainActivity.this, 9)
         );
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == Activity.RESULT_OK) {
+            assert data != null;
+            ArrayList<MediaFileInfo> mediaFileInfos = data.getParcelableArrayListExtra("media_info");
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                mediaFileInfos.forEach(mediaFileInfo -> Log.d(TAG, "accept: " + mediaFileInfo.getFilePath()));
+            }
+        }
+    }
 ```
-
-
-
-
 
 
 ![Image text](https://github.com/futurekang/Picture-Folder/blob/master/20191203104948.jpg)

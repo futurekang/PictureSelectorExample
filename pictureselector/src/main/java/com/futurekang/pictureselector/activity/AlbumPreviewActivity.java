@@ -441,11 +441,13 @@ public class AlbumPreviewActivity extends AppCompatActivity {
         }
         folderName.setText(folderFile.getFolderName());
         fileCount.setText("(" + folderFile.getChildFileInfo().size() + ")");
-        Glide.with(this)
-                .load(folderFile.getChildFileInfo().get(0).getFilePath())
-                .centerCrop()
-                .thumbnail()
-                .into(tiltePage);
+        if (folderFile.getChildFileInfo().size() > 0) {
+            Glide.with(this)
+                    .load(folderFile.getChildFileInfo().get(0).getFilePath())
+                    .centerCrop()
+                    .thumbnail()
+                    .into(tiltePage);
+        }
         viewHolder.itemView.setOnClickListener(v -> {
             hideFolderList();
             if (radioButton.isChecked()) {
